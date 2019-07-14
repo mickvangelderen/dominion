@@ -1,6 +1,8 @@
 use rand::seq::SliceRandom;
 use rand::Rng;
 
+pub mod protocol;
+
 #[derive(Debug, Clone)]
 pub struct Player {
     pub play: Vec<CardKind>,
