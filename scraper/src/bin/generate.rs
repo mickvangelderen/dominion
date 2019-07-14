@@ -9,15 +9,12 @@ use std::path::Path;
 use std::process::Command;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("cargo:rerun-if-changed=../dominion.json");
-
     let mut missing_no: usize = 0;
 
     let Scrape { sets, types, cards } = serde_json::from_reader(BufReader::new(
-        std::fs::File::open("../dominion.json").unwrap(),
+        std::fs::File::open("dominion.json").unwrap(),
     ))?;
 
-    // let out_dir = Path::new(std::env::var("OUT_DIR")?);
     let out_dir = Path::new(".");
     let out_path = out_dir.join("data.rs");
     let mut file = BufWriter::new(File::create(&out_path)?);

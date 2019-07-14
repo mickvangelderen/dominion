@@ -1,6 +1,3 @@
-// Let pub silence unused warnings.
-pub mod dominion;
-
 use dominion::*;
 use rand::seq::SliceRandom;
 
